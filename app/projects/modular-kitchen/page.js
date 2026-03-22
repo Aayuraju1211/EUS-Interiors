@@ -41,9 +41,9 @@ const materials = [
 ];
 
 const galleryImages = [
-    { src: "/project-modular-kitchen.jpg", alt: "Modular kitchen with integrated appliances" },
-    { src: "/gallery-dining.jpg", alt: "Modern dining area adjacent to kitchen" },
-    { src: "/gallery-living-2.jpg", alt: "Open plan kitchen and living space" },
+    { src: "/kitchen-1.png", alt: "Modular kitchen with integrated appliances" },
+    { src: "/kitchen-2.png", alt: "Modern dining area adjacent to kitchen" },
+    { src: "/kitchen-3.png", alt: "Open plan kitchen and living space" },
 ];
 
 export default function ModularKitchenPage() {

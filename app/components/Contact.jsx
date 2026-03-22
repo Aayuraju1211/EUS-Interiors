@@ -46,26 +46,72 @@ const CONTACT_INFO = [
 ];
 
 export default function Contact() {
-    const [form, setForm] = useState({
-        name: "",
-        phone: "",
-        email: "",
-        location: "",
-        bhk: "",
-        budget: "",
-        message: "",
-    });
+    const [name, setName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [location, setLocation] = useState("");
+    const [bhk, setBhk] = useState("");
+    const [budget, setBudget] = useState("");
+    const [message, setMessage] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
 
-    const handleChange = (e) =>
-        setForm({ ...form, [e.target.name]: e.target.value });
-
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const msg = `Hi! I'd like to discuss my interior design project.\n\n👤 Name: ${form.name}\n📞 Phone: ${form.phone}\n✉️ Email: ${form.email}\n📍 Location: ${form.location}\n🏠 BHK: ${form.bhk}\n💰 Budget: ${form.budget}\n💬 Message: ${form.message}`;
-        window.open(
-            `https://wa.me/918421119083?text=${encodeURIComponent(msg)}`,
-            "_blank"
-        );
+        setIsSubmitting(true);
+        setSuccessMessage("");
+
+        // Debug: verify all values are captured before sending
+        console.log("Form Data Payload:", {
+            Name: name,
+            Phone: phone,
+            Email: email,
+            Location: location,
+            BHK: bhk,
+            Budget: budget,
+            Message: message,
+        });
+
+        const formData = new FormData();
+        formData.append("Name", name);
+        formData.append("Phone", phone);
+        formData.append("Email", email);
+        formData.append("Location", location);
+        formData.append("BHK", bhk);
+        formData.append("Budget", budget);
+        formData.append("Message", message);
+
+        try {
+            await fetch(
+                "https://script.google.com/macros/s/AKfycbzaNavospYJSIef2s806uS7A2OBlLWA4ZO98Pmqj7iKbuCUos_xdrHBluIAVkIkLjWe/exec",
+                {
+                    method: "POST",
+                    mode: "no-cors",
+                    body: formData,
+                }
+            );
+        } catch (_err) {
+            // Silently ignore — with no-cors mode the request still reaches
+            // Google Apps Script even though the response is opaque.
+        }
+
+        // Clear all fields
+        setName("");
+        setPhone("");
+        setEmail("");
+        setLocation("");
+        setBhk("");
+        setBudget("");
+        setMessage("");
+
+        // Show success message
+        setSuccessMessage("Thank you! Your details have been received. Our team will contact you shortly.");
+
+        // Re-enable button after 4 seconds
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setSuccessMessage("");
+        }, 4000);
     };
 
     return (
@@ -96,11 +142,10 @@ export default function Contact() {
                                         </label>
                                         <input
                                             type="text"
-                                            name="name"
                                             required
                                             placeholder="Your full name"
-                                            value={form.name}
-                                            onChange={handleChange}
+                                            value={name}
+                                            onChange={(e) => setName(e.target.value)}
                                             className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal placeholder:text-soft-grey/50"
                                         />
                                     </div>
@@ -110,11 +155,10 @@ export default function Contact() {
                                         </label>
                                         <input
                                             type="tel"
-                                            name="phone"
                                             required
                                             placeholder="+91 XXXXX XXXXX"
-                                            value={form.phone}
-                                            onChange={handleChange}
+                                            value={phone}
+                                            onChange={(e) => setPhone(e.target.value)}
                                             className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal placeholder:text-soft-grey/50"
                                         />
                                     </div>
@@ -126,10 +170,9 @@ export default function Contact() {
                                     </label>
                                     <input
                                         type="email"
-                                        name="email"
                                         placeholder="your.email@example.com"
-                                        value={form.email}
-                                        onChange={handleChange}
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal placeholder:text-soft-grey/50"
                                     />
                                 </div>
@@ -141,10 +184,9 @@ export default function Contact() {
                                         </label>
                                         <input
                                             type="text"
-                                            name="location"
                                             placeholder="Area in Pune"
-                                            value={form.location}
-                                            onChange={handleChange}
+                                            value={location}
+                                            onChange={(e) => setLocation(e.target.value)}
                                             className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal placeholder:text-soft-grey/50"
                                         />
                                     </div>
@@ -153,9 +195,8 @@ export default function Contact() {
                                             BHK Type
                                         </label>
                                         <select
-                                            name="bhk"
-                                            value={form.bhk}
-                                            onChange={handleChange}
+                                            value={bhk}
+                                            onChange={(e) => setBhk(e.target.value)}
                                             className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238A8A8A%22 stroke-width=%222%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e')] bg-[length:16px] bg-[right_12px_center] bg-no-repeat"
                                         >
                                             <option value="">Select</option>
@@ -171,9 +212,8 @@ export default function Contact() {
                                             Budget
                                         </label>
                                         <select
-                                            name="budget"
-                                            value={form.budget}
-                                            onChange={handleChange}
+                                            value={budget}
+                                            onChange={(e) => setBudget(e.target.value)}
                                             className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%238A8A8A%22 stroke-width=%222%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e')] bg-[length:16px] bg-[right_12px_center] bg-no-repeat"
                                         >
                                             <option value="">Select</option>
@@ -191,22 +231,27 @@ export default function Contact() {
                                         Your Message
                                     </label>
                                     <textarea
-                                        name="message"
                                         rows={4}
                                         placeholder="Tell us about your project..."
-                                        value={form.message}
-                                        onChange={handleChange}
+                                        value={message}
+                                        onChange={(e) => setMessage(e.target.value)}
                                         className="form-input w-full px-4 py-3 rounded-xl text-sm text-charcoal placeholder:text-soft-grey/50 resize-none"
                                     />
                                 </div>
 
                                 <button
                                     type="submit"
-                                    className="btn-gold w-full sm:w-auto text-white font-semibold px-10 py-3.5 rounded-full text-sm flex items-center justify-center gap-2"
+                                    disabled={isSubmitting}
+                                    className="btn-gold w-full sm:w-auto text-white font-semibold px-10 py-3.5 rounded-full text-sm flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                                 >
-                                    Send Enquiry
-                                    <FiArrowRight size={16} />
+                                    {isSubmitting ? "Sending..." : "Send Enquiry"}
+                                    {!isSubmitting && <FiArrowRight size={16} />}
                                 </button>
+                                {successMessage && (
+                                    <p className="mt-3 text-sm font-medium text-green-600">
+                                        {successMessage}
+                                    </p>
+                                )}
                             </form>
                         </div>
                     </FadeInLeft>
