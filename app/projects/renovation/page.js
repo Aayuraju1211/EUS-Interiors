@@ -41,9 +41,9 @@ const materials = [
 ];
 
 const galleryImages = [
-    { src: "/r-1.png", alt: "Renovated living room with modern aesthetics" },
-    { src: "/r-2.png", alt: "Renovated reception area with gold arch detail" },
-    { src: "/r-3.png", alt: "Refreshed living area with updated TV unit design" },
+    { src: "/renovation-gallery-left.jpg", alt: "Renovated living room with modern aesthetics" },
+    { src: "/renovation-gallery-center.jpg", alt: "Renovated reception area with gold arch detail" },
+    { src: "/renovation-gallery-right.jpg", alt: "Refreshed living area with updated TV unit design" },
 ];
 
 export default function RenovationPage() {
@@ -51,7 +51,7 @@ export default function RenovationPage() {
         <ProjectDetailLayout
             title="Renovation"
             subtitle="Breathe new life into your existing spaces"
-            heroImage="/renovation.png"
+            heroImage="/renovation-main-tile.jpg"
             overview="Renovation is the art of reimagining what already exists. Whether your home needs a fresh coat of paint or a complete structural overhaul, EUS Interior handles it all — from demolition and waterproofing to flooring, false ceilings, and custom furniture. We understand the unique challenges of renovation work: dealing with existing structures, managing dust and noise, and minimizing disruption to your daily life. Our experienced contractors work efficiently to deliver a transformed space that feels brand new."
             process={processSteps}
             materials={materials}

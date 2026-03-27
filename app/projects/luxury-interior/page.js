@@ -51,7 +51,7 @@ export default function LuxuryInteriorPage() {
         <ProjectDetailLayout
             title="Luxury Interior"
             subtitle="Uncompromising elegance for the discerning homeowner"
-            heroImage="/luxury-home-interior.jpg"
+            heroImage="/luxury-main-tile.jpg"
             overview="Luxury is in the details — the feel of hand-stitched leather, the warmth of natural wood veneer, the sparkle of an imported crystal chandelier. Our luxury interior design service is for homeowners who demand nothing but the finest. We source materials from the world's leading suppliers and pair them with artisan-level craftsmanship to create spaces that exude sophistication. From designer furniture to smart home integration, every element is curated to deliver an experience of effortless opulence."
             process={processSteps}
             materials={materials}

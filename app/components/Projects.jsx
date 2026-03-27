@@ -6,7 +6,7 @@ import { FiArrowRight } from "react-icons/fi";
 
 const PROJECTS = [
     {
-        src: "/kitchen.png",
+        src: "/main-tile.jpg",
         alt: "Modular Kitchen Design by EUS Interior",
         title: "Modular Kitchen",
         slug: "modular-kitchen",
@@ -20,14 +20,14 @@ const PROJECTS = [
         desc: "End-to-end interior transformation for your home.",
     },
     {
-        src: "/luxury-home-interior.jpg",
+        src: "/luxury-main-tile.jpg",
         alt: "Luxury Interior Design by EUS Interior",
         title: "Luxury Interior",
         slug: "luxury-interior",
         desc: "Opulent spaces crafted with premium materials.",
     },
     {
-        src: "/renovation.png",
+        src: "/renovation-main-tile.jpg",
         alt: "Renovation Services by EUS Interior",
         title: "Renovation",
         slug: "renovation",

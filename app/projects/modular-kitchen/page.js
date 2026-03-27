@@ -41,9 +41,9 @@ const materials = [
 ];
 
 const galleryImages = [
-    { src: "/kitchen-1.png", alt: "Modular kitchen with integrated appliances" },
-    { src: "/kitchen-2.png", alt: "Modern dining area adjacent to kitchen" },
-    { src: "/kitchen-3.png", alt: "Open plan kitchen and living space" },
+    { src: "/gallery-left.jpg", alt: "Modular kitchen with integrated appliances" },
+    { src: "/gallery-center.jpg", alt: "Modern dining area adjacent to kitchen" },
+    { src: "/gallery-right.jpg", alt: "Open plan kitchen and living space" },
 ];
 
 export default function ModularKitchenPage() {
@@ -51,7 +51,7 @@ export default function ModularKitchenPage() {
         <ProjectDetailLayout
             title="Modular Kitchen"
             subtitle="Where culinary art meets intelligent design"
-            heroImage="/kitchen.png"
+            heroImage="/main-tile.jpg"
             overview="Our modular kitchens are a testament to precision engineering and aesthetic mastery. Every detail — from the soft-close drawers to the stone countertops — is selected to elevate your cooking experience. We blend European hardware with Indian craftsmanship to deliver kitchens that are not just beautiful, but built to endure the rigors of daily life. Whether you envision a minimalist handleless design or a warm traditional kitchen, we bring your vision to life within 45 days."
             process={processSteps}
             materials={materials}
