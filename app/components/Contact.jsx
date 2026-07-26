@@ -298,14 +298,14 @@ export default function Contact() {
                             {/* Google Maps Embed */}
                             <div className="rounded-2xl overflow-hidden premium-shadow h-[280px]">
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.627994791963!2d73.76577857513918!3d18.606879482508273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bbc49c13e4b7%3A0x4c8f5b8f8f8f8f8f!2sTathawade%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                                    src="https://maps.google.com/maps?q=Vardhaman+Moonstone,+Tathawade,+Pune&t=&z=16&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
                                     allowFullScreen=""
                                     loading="lazy"
                                     referrerPolicy="no-referrer-when-downgrade"
-                                    title="EUS Interiors Location - Tathawade, Pune"
+                                    title="EUS Interiors - 426, Vardhaman Moonstone, Tathawade, Pune"
                                 />
                             </div>
                         </div>

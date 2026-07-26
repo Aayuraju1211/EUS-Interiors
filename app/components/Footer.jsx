@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import { FaWhatsapp, FaInstagram, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import { FaWhatsapp, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -72,15 +72,14 @@ export default function Footer() {
                             Premium interior design services nationwide. Designing Dreams, Executing Excellence.
                         </p>
                         <div className="flex gap-3">
-                            {[FaInstagram, FaFacebookF, FaLinkedinIn].map((Icon, i) => (
-                                <a
-                                    key={i}
-                                    href="#"
-                                    className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-gold/20 transition-colors"
-                                >
-                                    <Icon size={14} className="text-white/60 hover:text-gold" />
-                                </a>
-                            ))}
+                            <a
+                                href="https://www.instagram.com/eus.interior/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-gold/20 transition-colors"
+                            >
+                                <FaInstagram size={14} className="text-white/60 hover:text-gold" />
+                            </a>
                         </div>
                     </div>
 

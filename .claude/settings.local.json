@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir \"c:\\\\Users\\\\ayura\\\\Desktop\\\\elite-unique-services\\\\app\\\\tetris\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\ayura\\Desktop\\elite-unique-services\\app"
+    ]
+  }
+}
